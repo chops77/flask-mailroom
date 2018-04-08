@@ -18,7 +18,7 @@ def all():
     
 @app.route('/donations/<name>/')
 def all_name(name):
-    donations = [donation for donation in Donation.select() if donation.donor.name == name]
+    donations = [donation for donation in Donation.select() if donation.donor.name == name.capitalize()]
     return render_template('donations.jinja2', donations=donations)
 
 if __name__ == "__main__":
